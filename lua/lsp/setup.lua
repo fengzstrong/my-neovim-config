@@ -20,6 +20,7 @@ require("mason-lspconfig").setup({
     "emmet_ls",
     "jsonls",
     "tsserver",
+    "gopls",
   },
 })
 
@@ -36,6 +37,7 @@ local servers = {
   emmet_ls = require("lsp.config.emmet"),
   jsonls = require("lsp.config.json"),
   tsserver = require("lsp.config.ts"),
+  gopls = require("lsp.config.go"),
 }
 
 for name, config in pairs(servers) do
