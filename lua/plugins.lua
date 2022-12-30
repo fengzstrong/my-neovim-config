@@ -1,7 +1,7 @@
 local packer = require("packer")
 packer.startup({
   function(use)
-    -- Packer 可以升级自己
+    -- packer 可以升级自己
     use("wbthomason/packer.nvim")
     --------------------- colorschemes --------------------
     -- tokyonight
@@ -30,9 +30,9 @@ packer.startup({
     -- 补全源
     use("hrsh7th/cmp-vsnip")
     use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
-    use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
-    use("hrsh7th/cmp-path") -- { name = 'path' }
-    use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
+    use("hrsh7th/cmp-buffer")   -- { name = 'buffer' }
+    use("hrsh7th/cmp-path")     -- { name = 'path' }
+    use("hrsh7th/cmp-cmdline")  -- { name = 'cmdline' }
     -- 常见编程语言代码段
     use("rafamadriz/friendly-snippets")
     -- ui

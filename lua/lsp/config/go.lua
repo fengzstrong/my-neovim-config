@@ -1,4 +1,4 @@
-local util = require "lspconfig/util"
+local util = require("lspconfig/util")
 
 local function go_org_imports(wait_ms)
   local params = vim.lsp.util.make_range_params()
@@ -24,12 +24,12 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 return {
   on_setup = function(server)
     server.setup({
-      capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+      -- capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
       flags = {
         debounce_text_changes = 150,
       },
       cmd = { "gopls", "serve" },
-      filetypes = { "go", "gomod" },
+      filetypes = { "go", "gomod", "gowork", "gotmpl" },
       root_dir = util.root_pattern("go.work", "go.mod", ".git"),
       settings = {
         gopls = {
@@ -40,9 +40,6 @@ return {
         },
       },
       on_attach = function(client, bufnr)
-        -- client.server_capabilities.document_formatting = false
-        -- client.server_capabilities.document_range_formatting = false
-
         local function buf_set_keymap(...)
           vim.api.nvim_buf_set_keymap(bufnr, ...)
         end

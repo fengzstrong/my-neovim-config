@@ -29,9 +29,9 @@ map("v", "J", ":move '>+1<CR>gv-gv", opt)
 map('n', 'H', '^', opt)
 map('n', 'L', '$', opt)
 -- 关闭当前
-map("n", "<C-c>", "<C-w>c", opt)
+-- map("n", "<C-c>", "<C-w>c", opt)
 -- 关闭其他
-map("n", "<C-o>", "<C-w>o", opt)
+map("n", "<leader>co", "<C-w>o", opt)
 -- Ctrl + hjkl  窗口之间跳转
 map("n", "<C-h>", "<C-w>h", opt)
 map("n", "<C-j>", "<C-w>j", opt)
@@ -39,6 +39,7 @@ map("n", "<C-k>", "<C-w>k", opt)
 map("n", "<C-l>", "<C-w>l", opt)
 -- Esc
 map('i', 'jj', '<Esc>', opt)
+-- Sava
 map('i', '<C-s>', '<Esc>:w<CR>', opt)
 map('n', '<C-s>', ':w<CR>', opt)
 
@@ -73,11 +74,11 @@ pluginKeys.nvimTreeList = {
 map("n", "<C-p>", ":BufferLineCyclePrev<CR>", opt)
 map("n", "<C-n>", ":BufferLineCycleNext<CR>", opt)
 -- 关闭
---"moll/vim-bbye"
+-- "moll/vim-bbye"
 map("n", "<C-w>", ":Bdelete!<CR>", opt)
-map("n", "<leader>bl", ":BufferLineCloseRight<CR>", opt)
-map("n", "<leader>bh", ":BufferLineCloseLeft<CR>", opt)
-map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+map("n", "<leader>cl", ":BufferLineCloseRight<CR>", opt)
+map("n", "<leader>ch", ":BufferLineCloseLeft<CR>", opt)
+-- map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
 
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(mapbuf)
@@ -89,17 +90,17 @@ pluginKeys.mapLSP = function(mapbuf)
   mapbuf("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opt)
   -- go xx
   mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
-  -- mapbuf("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
-  mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
+  -- mapbuf("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opt)
+  mapbuf("n", "K", "<cmd>Lspsaga hover_doc<cr>", opt)
   mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
   -- mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
-  mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
+  mapbuf("n", "gr", ":Lspsaga lsp_finder<CR>", opt)
   -- diagnostic
   -- mapbuf("n", "gp", "<cmd>lua vim.diagnostic.open_float()<CR>", opt)
   mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-  -- mapbuf("n", "gk", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
-  mapbuf("n", "gk", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
+  -- mapbuf("n", "gn", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opt)
+  mapbuf("n", "gn", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
   -- mapbuf("n", "gj", "<cmd>lua vim.diagnostic.goto_next()<CR>", opt)
   mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
   mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opt)
