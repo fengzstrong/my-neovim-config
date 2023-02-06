@@ -28,23 +28,27 @@ packer.startup({
     -- snippet 引擎
     use("hrsh7th/vim-vsnip")
     -- 补全源
-    use("hrsh7th/cmp-vsnip")
-    use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
-    use("hrsh7th/cmp-buffer")   -- { name = 'buffer' }
-    use("hrsh7th/cmp-path")     -- { name = 'path' }
-    use("hrsh7th/cmp-cmdline")  -- { name = 'cmdline' }
+    use({
+      "hrsh7th/cmp-vsnip",
+      -- { name = nvim_lsp }
+      "hrsh7th/cmp-nvim-lsp",
+      -- { name = 'buffer' }
+      "hrsh7th/cmp-buffer",
+      -- { name = 'path' }
+      "hrsh7th/cmp-path",
+      -- { name = 'cmdline' }
+      "hrsh7th/cmp-cmdline",
+    })
     -- 常见编程语言代码段
     use("rafamadriz/friendly-snippets")
-    -- ui
-    -- use("glepnir/lspsaga.nvim")
+    -- ui or use("glepnir/lspsaga.nvim")
     use("tami5/lspsaga.nvim")
-    -- 代码格式化
-    -- use("mhartington/formatter.nvim")
-    use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
     -- json增强
     use("b0o/schemastore.nvim")
     -- ts and js
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
+    -- 代码格式化
+    -- use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
   end,
   config = {
     display = {

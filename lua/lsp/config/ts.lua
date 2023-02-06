@@ -14,7 +14,7 @@ local opts = {
     end
     -- 绑定快捷键
     keybindings.mapLSP(buf_set_keymap)
-    -- TypeScript 增强
+    -- typeScript 增强
     ts_utils.setup({
       debug = false,
       disable_commands = false,
