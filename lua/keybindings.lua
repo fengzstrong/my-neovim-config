@@ -11,6 +11,7 @@ map("n", "<C-Right>", ":vertical resize +2<CR>", opt)
 -- 上下比例
 map("n", "<C-Down>", ":resize +2<CR>", opt)
 map("n", "<C-Up>", ":resize -2<CR>", opt)
+
 -- Terminal相关
 map("n", "<leader>ts", ":sp | terminal<CR>", opt)
 map("n", "<leader>tv", ":vsp | terminal<CR>", opt)
@@ -19,24 +20,37 @@ map("t", "<C-h>", [[ <C-\><C-N><C-w>h ]], opt)
 map("t", "<C-j>", [[ <C-\><C-N><C-w>j ]], opt)
 map("t", "<C-k>", [[ <C-\><C-N><C-w>k ]], opt)
 map("t", "<C-l>", [[ <C-\><C-N><C-w>l ]], opt)
+
 -- visual模式下缩进代码
 map("v", "<", "<gv", opt)
 map("v", ">", ">gv", opt)
+
 -- 上下移动选中文本
 map("v", "K", ":move '<-2<CR>gv-gv", opt)
 map("v", "J", ":move '>+1<CR>gv-gv", opt)
 -- jump to header(end)
 map('n', 'H', '^', opt)
 map('n', 'L', '$', opt)
+
 -- 关闭当前
 -- map("n", "<C-c>", "<C-w>c", opt)
+map("n", "<C-w>", ":Bdelete!<CR>", opt)
 -- 关闭其他
 map("n", "<leader>co", "<C-w>o", opt)
+map("n", "<leader>cl", ":BufferLineCloseRight<CR>", opt)
+map("n", "<leader>ch", ":BufferLineCloseLeft<CR>", opt)
+-- map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
+
 -- Ctrl + hjkl  窗口之间跳转
 map("n", "<C-h>", "<C-w>h", opt)
 map("n", "<C-j>", "<C-w>j", opt)
 map("n", "<C-k>", "<C-w>k", opt)
 map("n", "<C-l>", "<C-w>l", opt)
+
+-- 左右Tab切换
+map("n", "<C-p>", ":BufferLineCyclePrev<CR>", opt)
+map("n", "<C-n>", ":BufferLineCycleNext<CR>", opt)
+
 -- Esc
 map('i', 'jj', '<Esc>', opt)
 -- Sava
@@ -69,17 +83,6 @@ pluginKeys.nvimTreeList = {
   { key = "s", action = "system_open" },
 }
 
--- bufferline
--- 左右Tab切换
-map("n", "<C-p>", ":BufferLineCyclePrev<CR>", opt)
-map("n", "<C-n>", ":BufferLineCycleNext<CR>", opt)
--- 关闭
--- "moll/vim-bbye"
-map("n", "<C-w>", ":Bdelete!<CR>", opt)
-map("n", "<leader>cl", ":BufferLineCloseRight<CR>", opt)
-map("n", "<leader>ch", ":BufferLineCloseLeft<CR>", opt)
--- map("n", "<leader>bc", ":BufferLinePickClose<CR>", opt)
-
 -- lsp 回调函数快捷键设置
 pluginKeys.mapLSP = function(mapbuf)
   -- rename
@@ -89,13 +92,13 @@ pluginKeys.mapLSP = function(mapbuf)
   -- go xx
   mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
   mapbuf("n", "K", "<cmd>Lspsaga hover_doc<cr>", opt)
-  mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
+  -- mapbuf("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opt)
   mapbuf("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opt)
-  mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
+  mapbuf("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opt)
   -- diagnostic
-  mapbuf("n", "gp", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
-  mapbuf("n", "gn", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
-  mapbuf("n", "gj", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
+  mapbuf("n", "gs", "<cmd>Lspsaga show_line_diagnostics<CR>", opt)
+  mapbuf("n", "gp", "<cmd>Lspsaga diagnostic_jump_prev<cr>", opt)
+  mapbuf("n", "gn", "<cmd>Lspsaga diagnostic_jump_next<cr>", opt)
   -- format
   mapbuf("n", "<leader>f", "<cmd>lua vim.lsp.buf.format({ async = true })<CR>", opt)
   -- 没用到
