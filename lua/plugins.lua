@@ -8,7 +8,11 @@ packer.startup({
     use("folke/tokyonight.nvim")
     --------------------- plugins -------------------------
     -- nvim-tree
-    use({ "kyazdani42/nvim-tree.lua", requires = "kyazdani42/nvim-web-devicons" })
+    use({
+      "kyazdani42/nvim-tree.lua",
+      requires = "kyazdani42/nvim-web-devicons",
+      tag = "nightly"
+    })
     -- bufferline
     use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" } })
     -- lualine

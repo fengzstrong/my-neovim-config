@@ -1,11 +1,11 @@
-require('basic')
-require('keybindings')
+require("basic")
+require("keybindings")
 -- packer 插件管理
-require('plugins')
+require("plugins")
 -- 主题设置
-require('colorscheme')
+require("colorscheme")
 -- 插件配置
-require('plugin.nvim_tree_')
+require("plugin.nvim_tree")
 require("plugin.bufferline")
 require("plugin.lualine")
 require("plugin.nvim_treesitter")
