@@ -5,10 +5,10 @@ require('plugins')
 -- 主题设置
 require('colorscheme')
 -- 插件配置
-require('plugin_config.nvim_tree')
-require("plugin_config.bufferline")
-require("plugin_config.lualine")
-require("plugin_config.nvim_treesitter")
+require('plugin.nvim_tree_')
+require("plugin.bufferline")
+require("plugin.lualine")
+require("plugin.nvim_treesitter")
 -- lsp
 require("lsp.setup")
 require("lsp.cmp")
